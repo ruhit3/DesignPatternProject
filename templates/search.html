@@ -1,0 +1,31 @@
+<form class="form-horizontal" action="/" method="post">
+    <fieldset>
+        <p class="text-info">Please select and rate movies you have watched</p>
+        <div class="form-group">
+            <label for="search" class="col-lg-1 control-label">Movies:</label>
+            <div class="col-lg-4">
+                <datalist id="mymovies">
+                    {% for key, value in movies.items() %}
+                    <option>{{ value }}</option>
+                    {% endfor %}
+                </datalist>
+                <input id="search" list="mymovies" type="text" autocomplete="off" class="form-control" name="movie_name" placeholder="Search..">
+            </div>
+            <label for="select" class="col-lg-1 control-label">Ratings:</label>
+            <div class="col-lg-1">
+                <select name="movie_rating" class="form-control" id="select">
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                </select>
+            </div>
+            <div class="col-lg-5">
+                <input name='button' type="submit" class="btn btn-default" value="Add to watchlist">
+                <input name='button' type="submit" class="btn btn-danger" value="Clear">
+                <input name='button' type="submit" class="btn btn-primary" value="Get our recommendations!">
+            </div>
+        </div>
+    </fieldset>
+</form>

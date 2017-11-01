@@ -1,0 +1,28 @@
+<div class="list-group">
+    <li class="list-group-item">
+        <strong>Movies Recommended For You</strong>
+    </li>
+    {% for item in movie_predicted %}
+    <li class="list-group-item list-group-item-light">
+        <span class="text-primary">
+            <strong>#1</strong>
+        </span>
+        <span class="text-warning">
+            <strong>{{ item[1] }}</strong>
+        </span>
+
+        <p>
+            <span class="label label-warning">Success</span>
+            <span class="label label-warning">Success</span>
+
+            <span class="label label-warning">Success</span>
+
+            <span class="label label-warning">Success</span>
+
+            <span class="label label-warning">Success</span>
+        </p>
+
+
+    </li>
+    {% endfor %}
+</div>

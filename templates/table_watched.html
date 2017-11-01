@@ -1,0 +1,29 @@
+<div class="list-group">
+    <li class="list-group-item">
+        <strong>Movies You Have Rated</strong>
+    </li>
+    {% for name, rating in movie_watched.items() %}
+    <li class="list-group-item list-group-item-light">
+        <span class="text-primary">
+            <strong>#1</strong>
+        </span>
+        <a href="">
+            <strong>{{ name }}</strong>
+        </a>
+        <span class="badge">{{ rating }}</span>
+        <p>
+
+
+            <span class="label label-success">Success</span>
+            <span class="label label-success">Success</span>
+
+            <span class="label label-success">Success</span>
+
+            <span class="label label-success">Success</span>
+        </p>
+
+
+
+    </li>
+    {% endfor %}
+</div>
