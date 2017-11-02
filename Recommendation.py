@@ -13,7 +13,6 @@ def loadMovieLens(path=''):
         prefs[user][movies[movieid]] = float(rating)
     return prefs
 
-
 def pearson(prefs, p1, p2):
     si = {}
     for item in prefs[p1]:
@@ -34,17 +33,7 @@ def pearson(prefs, p1, p2):
     r = num / den
     return r
 
-def euclidean_distance(prefs, p1, p2):
-    si = {}
-    for item in prefs[p1]:
-        if item in prefs[p2]:
-            si[item] = 1
-    if len(si) == 0:
-        return 0
-    sum_of_squares = sum([pow(prefs[p1][item] - prefs[p2][item], 2) for item in prefs[p1] if item in prefs[p2]])
-    return 1 / (1 + sqrt(sum_of_squares))
-
-def getRecommendations(prefs, user, n=1, similarity=euclidean_distance):
+def getRecommendations(prefs, user, n=1, similarity=pearson):
     totals = {}
     simSums = {}
     for other in prefs:
@@ -66,12 +55,4 @@ def getRecommendations(prefs, user, n=1, similarity=euclidean_distance):
         return "Add more movies to get recommendations"
     else:
         return rankings[0:n]
-
-def test():
-    user_id = '55'
-    print('Recommendation for user: %s' % (user_id))
-    print(getRecommendations(loadMovieLens(), user_id))
-    user_id = '106'
-    print('Recommendation for user: %s' % (user_id))
-    print(getRecommendations(loadMovieLens(), user_id, 2))
 
