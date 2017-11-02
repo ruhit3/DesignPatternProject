@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'layout.html' %}
+</head>
+
+<body>
+    <div class="container">
+        {% include 'header.html' %}
+
+        <div class="row">
+            {% for i in range(2) %}
+            <br> {% endfor %}
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-6">
+                {% include 'sentiment.html' %}
+            </div>
+            <div class="col-lg-3">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
+                {% if flag==0 %}
+                <div class="alert alert-info">
+                    <p class="text-center">
+                        <strong>Thanks for a POSITIVE review!</strong>
+                    </p>
+                </div>
+                {% elif flag==1 %}
+                <div class="alert alert-warning">
+                    <p class="text-center">
+                        <strong>Oh snap! Sorry for a NEGATIVE review!</strong>
+                    </p>
+                </div>
+                {% else %}
+                <div class="alert alert-defult">
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

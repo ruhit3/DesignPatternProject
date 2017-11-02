@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include 'layout.html' %}
+</head>
+
+<body>
+    <div class="container">
+        {% include 'header.html' %}
+
+        <div class="row well">
+            {% include 'search.html' %}
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                {% include 'table_watched.html' %}
+            </div>
+            <div class="col-lg-6">
+                {% include 'table_predicted.html' %}
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
