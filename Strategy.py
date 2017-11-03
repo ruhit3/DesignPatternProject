@@ -1,3 +1,5 @@
+__author__ = "Azharuddin Ruhit"
+
 import types
 
 
@@ -40,9 +42,3 @@ class LoadDataset:
         strategy.filename = 'dataset/u.genre'
         self.genre = strategy.execute()
 
-
-'''if __name__ == '__main__':
-    dataset = LoadDataset()
-    print(dataset.data[1])
-    print(dataset.item[1])
-    print(dataset.genre[1])'''

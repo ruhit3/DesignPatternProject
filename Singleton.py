@@ -1,3 +1,5 @@
+__author__ = "Azharuddin Ruhit"
+
 class Movie:
     def __init__(self, id, name, genre):
         self.id = id
@@ -51,10 +53,3 @@ class Singleton:
         if Singleton.__instance == None:
             Singleton()
         return Singleton.__instance
-
-
-'''if __name__ == '__main__':
-    dataset = Strategy.LoadDataset()
-    database = Singleton.getInstance(dataset.data, dataset.item, dataset.genre)
-    database.movie_list[3].define()
-    print(len(list(database.preferences.values())[45]))'''

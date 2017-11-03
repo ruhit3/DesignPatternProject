@@ -1,3 +1,5 @@
+__author__ = "Azharuddin Ruhit"
+
 import numpy as np
 from math import sqrt
 

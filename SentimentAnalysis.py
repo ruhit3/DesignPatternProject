@@ -1,3 +1,5 @@
+__author__ = "Azharuddin Ruhit"
+
 import nltk
 import sklearn
 from sklearn.datasets import load_files
@@ -7,6 +9,9 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
 
 def getSentiment(user_review):
+    return len(user_review) % 2
+
+def getSentiments(user_review):
     movie_train = load_files(r'C:\Users\uce\Desktop\DesignPatternProject\movie_reviews', shuffle=True)
     movie_vec = CountVectorizer(min_df=2, tokenizer=nltk.word_tokenize)
     movie_counts = movie_vec.fit_transform(movie_train.data)
