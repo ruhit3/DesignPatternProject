@@ -1,17 +1,6 @@
 import numpy as np
 from math import sqrt
 
-def loadMovieLens(path=''):
-    movies = {}
-    for line in open(path + 'u.item'):
-        (id, title) = line.split('|')[0:2]
-        movies[id] = title
-    prefs = {}
-    for line in open(path + 'u.data'):
-        (user, movieid, rating, ts) = line.split('\t')
-        prefs.setdefault(user, {})
-        prefs[user][movies[movieid]] = float(rating)
-    return prefs
 
 def pearson(prefs, p1, p2):
     si = {}
@@ -33,7 +22,8 @@ def pearson(prefs, p1, p2):
     r = num / den
     return r
 
-def getRecommendations(prefs, user, n=1, similarity=pearson):
+
+def getRecommendations(prefs, user, n=3, similarity=pearson):
     totals = {}
     simSums = {}
     for other in prefs:
@@ -48,11 +38,8 @@ def getRecommendations(prefs, user, n=1, similarity=pearson):
                 totals[item] += prefs[other][item] * sim
                 simSums.setdefault(item, 0)
                 simSums[item] += sim
-    rankings = [(round(total / simSums[item]), item) for (item, total) in totals.items()]
+    rankings = [(round(total / simSums[item]), item)
+                for (item, total) in totals.items()]
     rankings.sort()
     rankings.reverse()
-    if len(rankings) == 0:
-        return "Add more movies to get recommendations"
-    else:
-        return rankings[0:n]
-
+    return rankings[0:n]

@@ -26,5 +26,3 @@ def getSentiment(user_review):
         return 0
     else:
         return -1
-
-print(getSentiment('hate this movie too much'))
